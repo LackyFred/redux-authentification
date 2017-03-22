@@ -22,7 +22,6 @@ export const signupUser = ({email, password}) => {
     return (dispatch) => {
         axios.post(`${ROOT_URL}/signup`, { email, password })
             .then(response => {
-                console.log(response.data);
                 dispatch({type: AUTH_USER});
                 localStorage.setItem('token', response.data.token);
                 browserHistory.push('/feature');
